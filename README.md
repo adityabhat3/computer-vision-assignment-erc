@@ -8,7 +8,8 @@ Note: This code doesn't run in WSL, as there are no webcam drivers in WSL.
 1. Clone this repo
 2. Confirm that hand_template.jpeg is in the same folder as hand_detector.py and that you have opencv-python and numpy installed.
 3. Run the hand_detector.py file.
-4. Press 'q' to exit the video stream.
+4. Move your hand in front of your camera. You should see a blue box around your hand confirming detection.
+5. Press 'q' to exit the video stream.
 
 ### Design
 We begin by loading the video source, which is our webcam in this case, using:
