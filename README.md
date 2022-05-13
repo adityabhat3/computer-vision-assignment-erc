@@ -1,6 +1,7 @@
 # computer-vision-assignment-erc
 
 This is my attempt at the computer vision induction assignment for the ERC induction, using Python and OpenCV.
+
 Note: This code doesn't run in WSL, as there are no webcam drivers in WSL.
 
 ### How to run
@@ -29,10 +30,10 @@ while True:
 ```
 I used a skin colour mask from source[2] to filter out whatever doesn't look like (human) skin. I changed a few values of the mask to make it better at detecting hands, through trial and error.
 ```py
-    hsvimage = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+    hsv_image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
     lower_bound = np.array([0, 38, 70], dtype="uint8")
     upper_bound = np.array([20, 255, 255], dtype="uint8")
-    mask = cv2.inRange(hsvimage, lower_bound, upper_bound)
+    mask = cv2.inRange(hsv_image, lower_bound, upper_bound)
 ```
 Blurring the masked image removes noise. I chose a small kernel size so that clarity is not lost.
 ```py
