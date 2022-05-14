@@ -18,11 +18,9 @@ while True:
     mask = cv2.inRange(hsv_image, lower_bound, upper_bound)
     # blurring to remove noise, with a kernel of 2x2 size
     blurred = cv2.blur(mask, (2, 2))
-    # threshold to find valid regions (binary thresh because we have already used a skin mask)
-    ret2, threshed = cv2.threshold(blurred, 0, 255, cv2.THRESH_BINARY)
     # template matching to hand_template
-    match1 = cv2.matchTemplate(threshed, hand_template_gray, cv2.TM_CCOEFF_NORMED)
-    match2 = cv2.matchTemplate(threshed, hand_template_gray_flipped, cv2.TM_CCOEFF_NORMED)
+    match1 = cv2.matchTemplate(blurred, hand_template_gray, cv2.TM_CCOEFF_NORMED)
+    match2 = cv2.matchTemplate(blurred, hand_template_gray_flipped, cv2.TM_CCOEFF_NORMED)
     threshold = 0.6
     valid_points1 = np.where(match1 >= threshold)
     valid_points2 = np.where(match2 >= threshold)
