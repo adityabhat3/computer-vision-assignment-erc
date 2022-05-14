@@ -5,7 +5,7 @@ import numpy as np
 video_feed = cv2.VideoCapture(0)
 
 # template image for hand detection
-hand_template_gray = cv2.imread('hand_template.jpeg', 0)
+hand_template_gray = cv2.imread('hand_template1.jpeg', 0)
 hand_template_gray_flipped = cv2.flip(hand_template_gray, 1)
 height, width = hand_template_gray.shape[::1]
 
