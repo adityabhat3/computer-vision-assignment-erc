@@ -48,7 +48,7 @@ Now, comparing threshed to hand_template_gray, cv2.matchTemplate returns a matri
 valid_points is used to find points are above the threshold, and therefore a match.
 ```py
     match1 = cv2.matchTemplate(threshed, hand_template_gray, cv2.TM_CCOEFF_NORMED)
-    threshold =0.49
+    threshold =0.6
     valid_points1 = np.where(match >= threshold)
 ```
 Below lines of code draw a rectangle staring at all valid points, of the size of the template image.
