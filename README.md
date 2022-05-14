@@ -40,11 +40,7 @@ Blurring the masked image removes noise. I chose a small kernel size so that cla
 ```py
     blurred = cv2.blur(mask, (2, 2))
 ````
-Using a threshold to find what actually classifies as skin. I used a binary threshold because we have already applied a skin mask to filter out non-skin stuff.
-```py
-    ret2, threshed = cv2.threshold(blurred,0,255,cv2.THRESH_BINARY)
-```
-Now, comparing threshed to hand_template_gray, cv2.matchTemplate returns a matrix with corresponding elements showing the fraction of threshed image pixels matching with superimposed template image. I got the threshold value through trial and error, and it feels like the best compromise between not detecting hands and detecting faces as hands.
+Now, comparing blurred to hand_template_gray, cv2.matchTemplate returns a matrix with corresponding elements showing the fraction of blurred image pixels matching with superimposed template image. I got the threshold value through trial and error, and it feels like the best compromise between not detecting hands and detecting faces as hands.
 valid_points is used to find points are above the threshold, and therefore a match.
 ```py
     match1 = cv2.matchTemplate(threshed, hand_template_gray, cv2.TM_CCOEFF_NORMED)
