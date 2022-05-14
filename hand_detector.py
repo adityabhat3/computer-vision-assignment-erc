@@ -27,9 +27,9 @@ while True:
     valid_points1 = np.where(match1 >= threshold)
     valid_points2 = np.where(match2 >= threshold)
     for point in zip(*valid_points1[::-1]):
-        cv2.rectangle(image, point, (point[0] + width, point[1] + height), (255, 0, 0), 1, )
+        cv2.rectangle(image, point, (point[0] + width, point[1] + height), (255, 0, 0), 1 )
     for point in zip(*valid_points2[::-1]):
-        cv2.rectangle(image, point, (point[0] + width, point[1] + height), (255, 0, 0), 1, )
+        cv2.rectangle(image, point, (point[0] + width, point[1] + height), (255, 0, 0), 1 )
     # show video with hand detection
     cv2.imshow("Video Feed", image)
     if cv2.waitKey(1) & 0xFF == ord('q'):
