@@ -4,7 +4,7 @@ This is my attempt at the computer vision induction assignment for the ERC induc
 
 Note: This code doesn't run in WSL, as there are no webcam drivers in WSL.
 
-### How to run
+### How To Run
 1. Clone this repo
 2. Confirm that hand_template.jpeg is in the same folder as hand_detector.py and that you have opencv-python and numpy installed.
 3. Run the hand_detector.py file.
@@ -69,6 +69,12 @@ Finally the below lines of code stop the video feed and close the video window o
 video_feed.release()
 cv2.destroyAllWindows()
 ```
+### Issues To Be Fixed
+1. Since this uses a simple skin mask, it requires proper bright lighting to be functional. This can be improved in the future by using contours.
+2. It cannot detect rotated hands as the template used is of a vertical hand.
+3. The hand needs to be around 50 cm from the camera to be detected, as the template is fixed in size.
+4. Your hand needs to be completely in the frame of the video feed to be detected.
+
 
 ### Sources
 1.  Sentdex's Youtube Playlist: https://www.youtube.com/playlist?list=PLQVvvaa0QuDdttJXlLtAJxJetJcqmqlQq
