@@ -6,7 +6,7 @@ Note: This code doesn't run in WSL, as there are no webcam drivers in WSL.
 
 ### How To Run
 1. Clone this repo
-2. Confirm that hand_template.jpeg is in the same folder as hand_detector.py and that you have opencv-python and numpy installed.
+2. Confirm that hand_template1.jpeg is in the same folder as hand_detector.py and that you have opencv-python and numpy installed.
 3. Run the hand_detector.py file.
 4. Move your hand in front of your camera. You should see a blue box around your hand confirming detection.
 5. Press 'q' to exit the video stream.
@@ -18,9 +18,9 @@ video_feed=cv2.VideoCapture(0)
 ```
 Note2: This might lead to problems if your PC has multiple webcams. If you get an error in this line change ```cv2.VideoCapture(0)``` to ```cv2.VideoCapture(1)```
 
-This stores a B&W image of hand_template.jpeg, and finds height and width of the template. It also generates an image of hand_template.jpeg flipped about y-axis, which yields better results in detecting hands than one single template of either hand. 
+This stores a B&W image of hand_template1.jpeg, and finds height and width of the template. It also generates an image of hand_template1.jpeg flipped about y-axis, which yields better results in detecting hands than one single template of either hand. 
 ```py
-hand_template_gray=cv2.imread('hand_template.jpeg',0)
+hand_template_gray=cv2.imread('hand_template1.jpeg',0)
 hand_template_gray_flipped=cv2.flip(hand_template_gray,1)
 height, width= hand_template_gray.shape[::1]
 ```
