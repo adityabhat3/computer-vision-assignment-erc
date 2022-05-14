@@ -23,7 +23,7 @@ while True:
     # template matching to hand_template
     match1 = cv2.matchTemplate(threshed, hand_template_gray, cv2.TM_CCOEFF_NORMED)
     match2 = cv2.matchTemplate(threshed, hand_template_gray_flipped, cv2.TM_CCOEFF_NORMED)
-    threshold = 0.49
+    threshold = 0.6
     valid_points1 = np.where(match1 >= threshold)
     valid_points2 = np.where(match2 >= threshold)
     for point in zip(*valid_points1[::-1]):
